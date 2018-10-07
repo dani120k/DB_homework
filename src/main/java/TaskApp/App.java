@@ -14,15 +14,14 @@ import java.util.ArrayList;
  */
 public class App 
 {
-    public static ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-
     public static void main( String[] args )
     {
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         DomainService domainService = ctx.getBean(DomainService.class);
         Domain testDomain = new Domain();
         testDomain.setId(1L);
         testDomain.setDomainName("test_domain");
-        testDomain.setOrgUnitList(new ArrayList<OrgUnit>());
+        //testDomain.setOrgUnitList(new ArrayList<OrgUnit>());
         domainService.addDomain(testDomain);
         System.out.println( "Hello World!" );
     }

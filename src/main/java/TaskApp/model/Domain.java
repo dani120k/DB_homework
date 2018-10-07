@@ -14,7 +14,7 @@ public class Domain {
     @Column(name = "domain_name")
     private String domainName;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    /*@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name="domain_id", referencedColumnName="id", updatable = false)
     private List<OrgUnit> orgUnitList;
 
@@ -24,7 +24,7 @@ public class Domain {
 
     public void setOrgUnitList(List<OrgUnit> orgUnitList) {
         this.orgUnitList = orgUnitList;
-    }
+    }*/
 
     public String getDomainName() {
         return domainName;
