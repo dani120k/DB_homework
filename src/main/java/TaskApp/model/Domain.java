@@ -1,5 +1,7 @@
 package TaskApp.model;
 
+import com.google.gson.Gson;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +16,19 @@ public class Domain {
     @Column(name = "domain_name")
     private String domainName;
 
-    /*@OneToMany(fetch = FetchType.EAGER)
+    public List<OrgUnit> getOrgUnits() {
+        return orgUnits;
+    }
+
+    public void setOrgUnits(List<OrgUnit> orgUnits) {
+        this.orgUnits = orgUnits;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name="domain_id", referencedColumnName="id", updatable = false)
+    private List<OrgUnit> orgUnits;
+
+    /*@OneToMany(fetch = FetchTypeEAGER)
     @JoinColumn(name="domain_id", referencedColumnName="id", updatable = false)
     private List<OrgUnit> orgUnitList;
 
@@ -40,5 +54,10 @@ public class Domain {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString(){
+        return new Gson().toJson(this);
     }
 }

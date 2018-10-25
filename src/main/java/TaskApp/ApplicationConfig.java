@@ -49,7 +49,7 @@ public class ApplicationConfig {
         DriverManagerDataSource source = new DriverManagerDataSource();
         source.setDriverClassName("org.postgresql.Driver");
         source.setUrl("jdbc:postgresql://localhost:5432/task_manager");
-        source.setUsername("admin");
+        source.setUsername("test");
         source.setPassword("password");
         return source;
 

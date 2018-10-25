@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "org_units")
+@Table(name = "org_unit")
 public class OrgUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,15 +13,13 @@ public class OrgUnit {
 
     private Long domain_id;
 
-    @Column(name = "orgUnit_name")
+    @Column(name = "org_unit_name")
     private String orgUnitName;
 
-    @Column(name = "description")
-    private String orgUnitDescription;
+    //@Column(name = "description")
+    //private String orgUnitDescription;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="orgUnit_id", referencedColumnName="id", updatable = false)
-    private List<User> users;
+
 
     public Long getId() {
         return id;
@@ -39,7 +37,7 @@ public class OrgUnit {
         this.orgUnitName = orgUnitName;
     }
 
-    public String getOrgUnitDescription() {
+    /*public String getOrgUnitDescription() {
         return orgUnitDescription;
     }
 
@@ -47,14 +45,14 @@ public class OrgUnit {
         this.orgUnitDescription = orgUnitDescription;
     }
 
-    public List<User> getUsers() {
+   /* public List<User> getUsers() {
         return users;
     }
 
     public void setUsers(List<User> users) {
         this.users = users;
     }
-
+*/
 
     public Long getDomain_id() {
         return domain_id;
