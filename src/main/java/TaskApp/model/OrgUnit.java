@@ -11,16 +11,17 @@ public class OrgUnit {
     @Column(name = "id")
     private Long id;
 
+    @Column(name="domain_id")
     private Long domain_id;
 
-    @Column(name = "orgUnit_name")
+    @Column(name = "orgunit_name")
     private String orgUnitName;
 
     @Column(name = "description")
     private String orgUnitDescription;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="orgUnit_id", referencedColumnName="id", updatable = false)
+    @JoinColumn(name="org_unit_id", referencedColumnName="id", updatable = false)
     private List<User> users;
 
     public Long getId() {

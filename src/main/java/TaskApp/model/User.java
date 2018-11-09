@@ -1,12 +1,13 @@
 package TaskApp.model;
 
+import com.google.gson.Gson;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -18,6 +19,19 @@ public class User {
 
     @Column(name = "second_name")
     private String second_name;
+
+    @Column(name="org_unit_id")
+    private Long orgUnitId;
+
+    public Long getOrgUnitId() {
+        return orgUnitId;
+    }
+
+    public void setOrgUnitId(Long orgUnitId) {
+        this.orgUnitId = orgUnitId;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -49,5 +63,10 @@ public class User {
 
     public void setSecond_name(String second_name) {
         this.second_name = second_name;
+    }
+
+    @Override
+    public String toString(){
+        return new Gson().toJson(this);
     }
 }

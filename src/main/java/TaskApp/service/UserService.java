@@ -2,10 +2,12 @@ package TaskApp.service;
 
 import TaskApp.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class UserService {
     @Autowired
     UserRepository<User> repository;
@@ -18,7 +20,7 @@ public class UserService {
 
     @Transactional("jpaTransactionManager")
     public void addUser(User user) {
-        repository.save(user);
+        System.out.println(user.toString());repository.save(user);
     }
 
     @Transactional("jpaTransactionManager")
