@@ -16,19 +16,12 @@ public class Domain {
     @Column(name = "domain_name")
     private String domainName;
 
-    public List<OrgUnit> getOrgUnits() {
-        return orgUnits;
-    }
-
-    public void setOrgUnits(List<OrgUnit> orgUnits) {
-        this.orgUnits = orgUnits;
+    @Override
+    public String toString(){
+        return new Gson().toJson(this);
     }
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="domain_id", referencedColumnName="id", updatable = false)
-    private List<OrgUnit> orgUnits;
-
-    /*@OneToMany(fetch = FetchTypeEAGER)
     @JoinColumn(name="domain_id", referencedColumnName="id", updatable = false)
     private List<OrgUnit> orgUnitList;
 
@@ -38,7 +31,7 @@ public class Domain {
 
     public void setOrgUnitList(List<OrgUnit> orgUnitList) {
         this.orgUnitList = orgUnitList;
-    }*/
+    }
 
     public String getDomainName() {
         return domainName;
@@ -54,10 +47,5 @@ public class Domain {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString(){
-        return new Gson().toJson(this);
     }
 }
