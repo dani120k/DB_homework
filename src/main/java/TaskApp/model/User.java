@@ -20,8 +20,21 @@ public class User {
     @Column(name = "second_name")
     private String second_name;
 
+
+
+    //@Column(name = "password")
+    //private String password;
+
     @Column(name="org_unit_id")
     private Long orgUnitId;
+
+    /*public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }*/
 
     public Long getOrgUnitId() {
         return orgUnitId;

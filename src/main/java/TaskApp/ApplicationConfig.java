@@ -1,4 +1,4 @@
-package TaskApp.config;
+package TaskApp;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
