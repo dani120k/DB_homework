@@ -1,26 +1,24 @@
 package TaskApp.rest;
 
 import TaskApp.ApplicationConfig;
-import TaskApp.model.PreregisterUser;
+import TaskApp.handlers.UserHandler;
 import TaskApp.model.User;
 import TaskApp.service.UserService;
+import TaskApp.utils.ErrorWrapper;
 import com.google.gson.Gson;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/registration")
 public class RegistrationController {
     static ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
     static UserService userService = applicationContext.getBean(UserService.class);
-
-    @CrossOrigin
-    @RequestMapping(value="/preregistration", method=RequestMethod.POST)
-    public String doPreRegistration(@RequestBody PreregisterUser user){
-        return "";
-    }
+    static UserHandler userHandler = new UserHandler();
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value="/getAllUsers", method = RequestMethod.GET)
@@ -32,20 +30,8 @@ public class RegistrationController {
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value="/auth", method = RequestMethod.POST)
     public String tryToAuth(@RequestBody User user){
-        // System.out.println(userString);
-        //User user = new Gson().fromJson(userString, User.class);
         System.out.println(user.toString());
-        List<User> userList = userService.getAllUsers();
-        boolean check = false;
-        for(User us:userList){
-            if (us.getEmail().equals(user.getEmail()) && us.getId().equals(user.getId()))
-                check=true;
-        }
-        if (check) {
-            return new Gson().toJson("auth");
-        } else {
-            return new Gson().toJson("error");
-        }
+        return new Gson().toJson(userHandler.checkLogin(user));
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

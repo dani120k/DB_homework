@@ -2,10 +2,12 @@ package TaskApp.service;
 
 import TaskApp.model.Task;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class TaskService {
     @Autowired
     TaskRepository<Task> repository;
@@ -13,7 +15,6 @@ public class TaskService {
     @Transactional("jpaTransactionManager")
     public List<Task> getAllTasks() {
         return (List<Task>) repository.findAll();
-
     }
 
     @Transactional("jpaTransactionManager")

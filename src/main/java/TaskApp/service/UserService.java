@@ -32,4 +32,9 @@ public class UserService {
     public void updateUser(User user) {
         repository.save(user);
     }
+
+    @Transactional("jpaTransactionManager")
+    public List<User> getLastLogin(){
+        return (List<User>) repository.getLastLogin();
+    }
 }

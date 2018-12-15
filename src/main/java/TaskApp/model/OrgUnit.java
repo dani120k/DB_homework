@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "org_units")
+@Table(name = "org_unit")
 public class OrgUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class OrgUnit {
     @Column(name="domain_id")
     private Long domain_id;
 
-    @Column(name = "orgunit_name")
+    @Column(name = "org_unit_name")
     private String orgUnitName;
 
     @Column(name = "description")
