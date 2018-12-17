@@ -24,6 +24,8 @@ public class UserInfo {
     @Column(name = "second_name")
     private String second_name;
 
+    @Column(name = "cartoon")
+    private Long cartoon;
 
     @Column(name="user_id")
     private Long userId;

@@ -1,7 +1,6 @@
 package TaskApp.model;
 
 import com.google.gson.Gson;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -21,8 +20,11 @@ public class User {
     @Column(name = "login_time")
     private Date login_time;
 
+
+
     @Column(name="org_unit_id")
     private Long orgUnitId;
+
 
     @Override
     public boolean equals(Object input){

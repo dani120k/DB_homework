@@ -26,6 +26,11 @@ public class UserController {
         return new Gson().toJson(userService.getAllUsers());
     }
 
+    @RequestMapping(value = "/getStatsUser", method = RequestMethod.GET)
+    public String getStats(){
+        return new Gson().toJson(userService.getStatsOfUser());
+    }
+
     @RequestMapping(value = "/getLastLogin", method = RequestMethod.GET)
     public String getLastLogin(){
         List<User> users = userService.getLastLogin();

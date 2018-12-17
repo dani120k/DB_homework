@@ -22,4 +22,13 @@ public class Task {
     @Column(name = "executor_user_id")
     private Long executor_user_id;
 
+    @Column(name = "curr_hours")
+    private Long curr_hours;
+
+    @Column(name = "full_hours")
+    private Long full_hours;
+
+    @Column(name = "status")
+    private Long status;
+
 }

@@ -20,7 +20,7 @@ public class UserService {
 
     @Transactional("jpaTransactionManager")
     public void addUser(User user) {
-        System.out.println(user.toString());repository.save(user);
+        repository.save(user);
     }
 
     @Transactional("jpaTransactionManager")
@@ -37,4 +37,7 @@ public class UserService {
     public List<User> getLastLogin(){
         return (List<User>) repository.getLastLogin();
     }
+
+    @Transactional("jpaTransactionManager")
+    public List<Object> getStatsOfUser(){return repository.getStatsOfUser();}
 }
