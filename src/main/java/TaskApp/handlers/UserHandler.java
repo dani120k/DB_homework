@@ -7,6 +7,8 @@ import TaskApp.utils.ErrorWrapper;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -20,8 +22,14 @@ public class UserHandler {
 
             if (curr.equals(user)){
                 ErrorWrapper errorWrapper = new ErrorWrapper(0L, "ok");
-                curr.setLogin_time(new Date());
-                userService.updateUser(curr);
+                DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                Date today = new Date();
+                try {
+                    Date todayWithZeroTime = formatter.parse(formatter.format(today));
+                    curr.setLogin_time(todayWithZeroTime);
+                    userService.updateUser(curr);
+                }catch (Exception ex){ex.printStackTrace();}
+
                 return errorWrapper;
             }
         }

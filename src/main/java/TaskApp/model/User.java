@@ -20,7 +20,8 @@ public class User {
     @Column(name = "login_time")
     private Date login_time;
 
-
+    @Column(name = "user_info_id")
+    private Long user_info_id;
 
     @Column(name="org_unit_id")
     private Long orgUnitId;

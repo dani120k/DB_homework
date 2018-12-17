@@ -31,4 +31,9 @@ public class TaskService {
     public void updateTask(Task task) {
         repository.save(task);
     }
+
+    @Transactional("jpaTransactionManager")
+    public List<Task> getLastMonthTask(){
+        return (List<Task>) repository.getLastMonthTask();
+    }
 }

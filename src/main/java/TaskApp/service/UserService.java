@@ -1,6 +1,9 @@
 package TaskApp.service;
 
+import TaskApp.model.CurrUser;
+import TaskApp.model.Task;
 import TaskApp.model.User;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +41,9 @@ public class UserService {
         return (List<User>) repository.getLastLogin();
     }
 
-    @Transactional("jpaTransactionManager")
-    public List<Object> getStatsOfUser(){return repository.getStatsOfUser();}
+
+
+
+
+
 }
